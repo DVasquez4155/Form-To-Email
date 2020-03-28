@@ -30,6 +30,7 @@ app.post("/", function(req,res) {
                 time: moment().format('LLLL')
             }
         )
+    res.send(req.body)
 })
 app.get("/", (req,res)=> {
     
