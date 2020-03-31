@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors());
-app.use(cors({ origin: ['http://localhost']}))
+app.use(cors({ origin: ['http://localhost' 'https://forms.dvasquez4155.com']}))
 
 app.post("/", function(req,res) {
     mail(
@@ -31,8 +31,5 @@ app.post("/", function(req,res) {
             }
         )
     res.send(req.body)
-})
-app.get("/", (req,res)=> {
-    
 })
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
