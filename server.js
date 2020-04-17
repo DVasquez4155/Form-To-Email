@@ -16,22 +16,15 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-
 app.post("/", function(req,res) {
-    mail(
-            {
-                name : req.body.name,
-                email: req.body.email,
-                subject: req.body.subject,
-                message: req.body.message,
-                time: moment().format('LLLL')
-            }
-        )
+    console.log(req.body)
+    mail({
+            name : req.body.name,
+            email: req.body.email,
+            subject: req.body.subject,
+            message: req.body.message,
+            time: moment().format('LLLL')
+        })
     res.send(req.body)
 })
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
